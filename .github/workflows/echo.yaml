@@ -1,0 +1,13 @@
+name: push
+
+on: [ push, pull_request ]
+
+jobs:
+ job01:
+   
+   runs-on: [ubuntu-latest]
+   steps:
+     - name: say hello
+       
+       run: |
+         echo say hello
