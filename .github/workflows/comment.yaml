@@ -22,3 +22,8 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -d '{"name":"autorun","head_sha":"${{ github.sha }}"}' \
           --fail
+          curl \
+            -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/octocat/hello-world/actions/workflows/env.yaml/dispatches \
+            -d '{"repository":"${{ github.repository }}", "branch":"${{ github.sha }}"}'
