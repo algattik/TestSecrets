@@ -20,5 +20,5 @@ jobs:
           ISSUE_URL: ${{ github.event.issue.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh workflow run env.yaml
+          gh workflow run env.yaml -R $GITHUB_REPOSITORY
 
