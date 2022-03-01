@@ -13,12 +13,10 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
-      - name: Create issue using REST API
+      - env:
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          curl --request POST \
-          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-          --header 'content-type: application/json' \
-          -H "Accept: application/vnd.github.v3+json" \
-          --url https://api.github.com/repos/${{ github.repository }}/actions/workflows/env.yaml/dispatches \
-          -d '{"ref":"main","inputs":{"repository":"${{ github.repository }}", "branch":"${{ github.sha }}"}}' \
-          --fail
+          gh workflow run env.yaml
+
+https://github.com/algattik/TestSecrets/pull/3#issuecomment-1055040306
+
