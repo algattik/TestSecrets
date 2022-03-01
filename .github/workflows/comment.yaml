@@ -19,6 +19,7 @@ jobs:
       - env:
           ISSUE_URL: ${{ github.event.issue.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: api
         run: |
           gh workflow run env.yaml -R $GITHUB_REPOSITORY
 
