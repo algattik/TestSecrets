@@ -18,5 +18,3 @@ jobs:
         run: |
           gh workflow run env.yaml
 
-https://github.com/algattik/TestSecrets/pull/3#issuecomment-1055040306
-
